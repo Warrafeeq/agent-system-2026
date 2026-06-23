@@ -1,0 +1,68 @@
+#!/usr/bin/env python3
+"""
+Create/update documentation files
+"""
+from datetime import datetime
+
+def create_index_docs():
+    """Create documentation index"""
+    docs_content = f"""# Project Documentation
+
+Last Updated: {datetime.now().isoformat()}
+
+## Overview
+
+This is automated documentation for your GitHub projects.
+
+## Quick Links
+
+- [Code Quality Report](../code_quality_report.txt)
+- [Security Report](../security_report.txt)
+- [Improvement Suggestions](../suggestions.md)
+
+## Daily Automation
+
+This repository includes automated workflows:
+
+- **Daily Repository Scan** - Analyzes code quality and security
+- **Project Generator** - Creates new starter projects
+- **Documentation Update** - Keeps documentation current
+
+## Getting Started
+
+1. Review the analysis reports
+2. Implement suggested improvements
+3. Check newly generated projects in `/projects` directory
+
+## Project Guidelines
+
+All generated projects include:
+- README with setup instructions
+- Example code
+- Requirements/dependencies
+- Basic structure for quick start
+
+## Contributing
+
+When improving automated projects:
+1. Follow the existing code style
+2. Add tests for new features
+3. Update documentation
+4. Commit with clear messages
+
+## Resources
+
+- [GitHub Actions Documentation](https://docs.github.com/actions)
+- [Python Best Practices](https://pep8.org/)
+- [Node.js Best Practices](https://nodejs.org/en/docs/guides/)
+"""
+    
+    with open('docs/INDEX.md', 'w') as f:
+        f.write(docs_content)
+    
+    print("Created documentation index")
+
+if __name__ == '__main__':
+    import os
+    os.makedirs('docs', exist_ok=True)
+    create_index_docs()
