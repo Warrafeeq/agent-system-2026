@@ -34,15 +34,26 @@ jobs:
 
       - name: Analyze code quality
         run: |
-          find . -name "*.py" -type f ! -path "./.git/*" ! -path "./venv/*" | head -20 | xargs pylint --exit-zero > code_quality_report.txt || true
+          echo "=== Code Quality Analysis ===" > code_quality_report.txt
+          find . -name "*.py" -type f ! -path "./.git/*" ! -path "./venv/*" ! -path "./projects/*" | head -20 | xargs pylint --exit-zero >> code_quality_report.txt 2>&1 || echo "Analysis complete"
           echo "Code Quality Analysis Complete"
 
       - name: Check security issues
         run: |
-          find . -name "*.py" -type f ! -path "./.git/*" ! -path "./venv/*" | head -20 | xargs bandit -ll > security_report.txt 2>&1 || true
+          echo "=== Security Analysis ===" > security_report.txt
+          find . -name "*.py" -type f ! -path "./.git/*" ! -path "./venv/*" ! -path "./projects/*" | head -20 | xargs bandit -ll >> security_report.txt 2>&1 || echo "Security scan complete"
 
       - name: Generate improvement suggestions
         run: python scripts/generate_suggestions.py
+
+      - name: Create analysis summary
+        run: |
+          echo "# Daily Repository Analysis" > analysis_summary.md
+          echo "" >> analysis_summary.md
+          echo "Generated: $(date)" >> analysis_summary.md
+          echo "" >> analysis_summary.md
+          echo "## Repository Overview" >> analysis_summary.md
+          ls -la scripts/ >> analysis_summary.md 2>&1 || true
 
       - name: Upload reports
         if: always()
@@ -53,3 +64,5 @@ jobs:
             code_quality_report.txt
             security_report.txt
             suggestions.md
+            analysis_summary.md
+            repo_analysis.json
