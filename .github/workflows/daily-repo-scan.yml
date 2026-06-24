@@ -18,7 +18,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: analysis-reports
-          path: |
-            code_quality_report.txt
-            security_report.txt
-            suggestions.md
+          path: code_quality_report.txt
