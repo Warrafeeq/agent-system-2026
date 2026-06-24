@@ -1,4 +1,4 @@
-name: Hourly Agent Scan
+name: Hourly Agent Scan & Auto-Documentation
 on:
   schedule:
     - cron: '0 * * * *'
@@ -7,6 +7,8 @@ on:
 jobs:
   analyze:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -18,21 +20,63 @@ jobs:
       - name: Install dependencies
         run: pip install requests pyyaml
 
-      - name: Run analysis
-        run: |
-          echo "# Agent Scan Report" > report.txt
-          echo "Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)" >> report.txt
-          echo "Repository: ${{ github.repository }}" >> report.txt
-          echo "Branch: ${{ github.ref }}" >> report.txt
-          echo "" >> report.txt
-          echo "## Analysis" >> report.txt
-          echo "- Code files: $(find . -name '*.py' -type f ! -path './.git/*' ! -path './venv/*' | wc -l)" >> report.txt
-          echo "- Documentation files: $(find . -name '*.md' -type f ! -path './.git/*' | wc -l)" >> report.txt
-          echo "- Last commit: $(git log -1 --format=%H)" >> report.txt
+      - name: Generate auto documentation
+        run: python scripts/generate_auto_docs.py
 
-      - name: Upload report
+      - name: Create scan report
+        run: |
+          mkdir -p scan_reports
+          cat > scan_reports/hourly_report.txt << EOF
+          # Hourly Agent Scan Report
+          Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)
+          Repository: ${{ github.repository }}
+          Branch: ${{ github.ref }}
+          Commit: $(git log -1 --format=%H)
+          Author: $(git log -1 --format=%an)
+          Message: $(git log -1 --format=%s)
+          
+          ## Scan Details
+          - Python Files: $(find . -name '*.py' -type f ! -path './.git/*' ! -path './venv/*' | wc -l)
+          - Documentation Files: $(find . -name '*.md' -type f ! -path './.git/*' | wc -l)
+          - Directories: $(find . -type d ! -path './.git/*' ! -path './venv/*' -o -name __pycache__ -prune | wc -l)
+          
+          ## Auto-Generated Documentation
+          - Index: auto_generated_docs/INDEX.md
+          - ML: auto_generated_docs/ML/README.md
+          - DL: auto_generated_docs/DL/README.md
+          - FL: auto_generated_docs/FL/README.md
+          - Transformers: auto_generated_docs/Transformers/README.md
+          - NLP: auto_generated_docs/NLP/README.md
+          - CV: auto_generated_docs/CV/README.md
+          - Optimization: auto_generated_docs/Optimization/README.md
+          - Utilities: auto_generated_docs/Utilities/README.md
+          - General: auto_generated_docs/General/README.md
+          
+          Documentation generated successfully!
+          EOF
+
+      - name: Commit documentation
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action Bot"
+          git add auto_generated_docs/ scan_reports/ 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No documentation changes to commit"
+          else
+            git commit -m "docs: Auto-generate code documentation - $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git push
+          fi
+
+      - name: Upload documentation
         uses: actions/upload-artifact@v4
         with:
-          name: hourly-reports
-          path: report.txt
+          name: auto-documentation
+          path: auto_generated_docs/
+          retention-days: 30
+
+      - name: Upload scan report
+        uses: actions/upload-artifact@v4
+        with:
+          name: hourly-scan-reports
+          path: scan_reports/
           retention-days: 7
