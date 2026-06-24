@@ -1,15 +1,38 @@
-name: Daily Scan
+name: Hourly Agent Scan
 on:
   schedule:
-    - cron: '0 9 * * *'
+    - cron: '0 * * * *'
   workflow_dispatch:
 
 jobs:
   analyze:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "test" > report.txt
-      - uses: actions/upload-artifact@v4
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          name: reports
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests pyyaml
+
+      - name: Run analysis
+        run: |
+          echo "# Agent Scan Report" > report.txt
+          echo "Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)" >> report.txt
+          echo "Repository: ${{ github.repository }}" >> report.txt
+          echo "Branch: ${{ github.ref }}" >> report.txt
+          echo "" >> report.txt
+          echo "## Analysis" >> report.txt
+          echo "- Code files: $(find . -name '*.py' -type f ! -path './.git/*' ! -path './venv/*' | wc -l)" >> report.txt
+          echo "- Documentation files: $(find . -name '*.md' -type f ! -path './.git/*' | wc -l)" >> report.txt
+          echo "- Last commit: $(git log -1 --format=%H)" >> report.txt
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: hourly-reports
           path: report.txt
+          retention-days: 7
