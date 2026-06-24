@@ -1,5 +1,4 @@
 name: Daily Repository Scan & Analysis
-
 on:
   schedule:
     - cron: '0 9 * * *'
@@ -8,45 +7,14 @@ on:
 jobs:
   scan-and-analyze:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Create report files
-        shell: bash
+      - name: Create files
         run: |
-          cat > code_quality_report.txt << 'EOF'
-          # Code Quality Analysis Report
-          Generated: $(date)
-          Status: OK
-          EOF
-          
-          cat > security_report.txt << 'EOF'
-          # Security Analysis Report
-          Generated: $(date)
-          Status: OK
-          EOF
-          
-          cat > suggestions.md << 'EOF'
-          # Code Improvement Suggestions
-          Generated: $(date)
-          - Suggestion 1
-          - Suggestion 2
-          EOF
+          echo "# Code Quality Report" > code_quality_report.txt
+          echo "# Security Report" > security_report.txt
+          echo "# Suggestions" > suggestions.md
 
-      - name: Verify files
-        shell: bash
-        run: |
-          ls -la *.txt *.md
-          echo "---"
-          echo "code_quality_report.txt:"
-          cat code_quality_report.txt
-          echo "---"
-          echo "security_report.txt:"
-          cat security_report.txt
-          echo "---"
-          echo "suggestions.md:"
-          cat suggestions.md
-
-      - name: Upload artifacts
+      - name: Upload
         uses: actions/upload-artifact@v4
         with:
           name: analysis-reports
