@@ -1,27 +1,27 @@
 [
   {
-    "name": "cli-tool-20260625-121028",
+    "name": "cli-tool-20260626-120520",
     "type": "python_cli",
-    "path": "projects/cli-tool-20260625-121028"
+    "path": "projects/cli-tool-20260626-120520"
   },
   {
-    "name": "api-service-20260625-121028",
+    "name": "api-service-20260626-120520",
     "type": "python_api",
-    "path": "projects/api-service-20260625-121028"
+    "path": "projects/api-service-20260626-120520"
   },
   {
-    "name": "express-api-20260625-121028",
+    "name": "express-api-20260626-120520",
     "type": "nodejs_api",
-    "path": "projects/express-api-20260625-121028"
+    "path": "projects/express-api-20260626-120520"
   },
   {
-    "name": "cli-tool-20260625-121028",
+    "name": "cli-tool-20260626-120520",
     "type": "python_cli",
-    "path": "projects/cli-tool-20260625-121028"
+    "path": "projects/cli-tool-20260626-120520"
   },
   {
-    "name": "api-service-20260625-121028",
+    "name": "api-service-20260626-120520",
     "type": "python_api",
-    "path": "projects/api-service-20260625-121028"
+    "path": "projects/api-service-20260626-120520"
   }
 ]
