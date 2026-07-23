@@ -1,74 +1,132 @@
 # ML Documentation
 
-**Generated:** 2026-07-23 21:01:09 UTC
+**Generated:** 2026-07-23 22:53:30 UTC
 
 **Total Files:** 5
 
 ## Files
 
-- [./scripts/multicloud_orchestrator.py](#--scripts-multicloud_orchestrator-py)
-- [./scripts/compliance_security.py](#--scripts-compliance_security-py)
 - [./scripts/agent_orchestrator.py](#--scripts-agent_orchestrator-py)
-- [./scripts/generate_auto_docs.py](#--scripts-generate_auto_docs-py)
 - [./scripts/agent_learning.py](#--scripts-agent_learning-py)
+- [./scripts/compliance_security.py](#--scripts-compliance_security-py)
+- [./scripts/multicloud_orchestrator.py](#--scripts-multicloud_orchestrator-py)
+- [./scripts/generate_auto_docs.py](#--scripts-generate_auto_docs-py)
 
 ## Detailed Documentation
 
-### ./scripts/multicloud_orchestrator.py
+### ./scripts/agent_orchestrator.py
 
-**Lines of Code:** 344
+**Lines of Code:** 243
 
 **Module Description:**
 ```
-Multi-Cloud Orchestration Engine - AWS, GCP, Azure workload management
+Core Agent Orchestrator - Multi-repo management and autonomous task coordination
+```
+
+**Key Imports:**
+```python
+import os
+import json
+import time
+from datetime import datetime, timedelta
+from typing import Dict, List, Optional
+```
+
+**Classes (3):**
+- **AgentTask**: No documentation
+- **RepositoryProfile**: No documentation
+- **AgentOrchestrator**: No documentation
+
+**Functions (12):**
+- **__init__()**: No documentation
+- **load_state()**: if os.path.exists(self.state_file):
+            try:
+                with open(self.state_file, 'r')
+- **save_state()**: state = {
+            'learning_memory': self.learning_memory,
+            'timestamp': datetime.now
+- **discover_repos()**: url = f'{GITHUB_API}/orgs/{org}/repos'
+        params = {'per_page': 100, 'type': 'all'}
+        
+  
+- **build_dependency_graph()**: for repo in repos:
+            self.multi_repo_graph[repo['name']] = {
+                'url': repo['
+- **extract_dependencies()**: # Placeholder - would parse package.json, requirements.txt, go.mod, etc.
+        return []
+
+    def 
+- **create_long_running_task()**: task_id = hashlib.md5(f"{name}{datetime.now().isoformat()}".encode()).hexdigest()[:8]
+        task =
+- **execute_task_with_checkpoints()**: try:
+            task.status = 'running'
+            task.updated_at = datetime.now().isoformat()
+  
+- **execute_checkpoint()**: return {'checkpoint': checkpoint, 'timestamp': datetime.now().isoformat()}
+
+    def analyze_repo_dee
+- **analyze_repo_deeply()**: profile = RepositoryProfile(
+            name=repo_name,
+            url='',
+            language=''
+
+---
+
+### ./scripts/agent_learning.py
+
+**Lines of Code:** 287
+
+**Module Description:**
+```
+Agent Learning Engine - Continuous improvement and pattern learning
 ```
 
 **Key Imports:**
 ```python
 import json
+from datetime import datetime, timedelta
 from typing import Dict, List
-from dataclasses import dataclass
-from enum import Enum
-from datetime import datetime
+from collections import defaultdict
 ```
 
 **Classes (3):**
-- **CloudProvider**: No documentation
-- **ResourceOptimization**: No documentation
-- **MultiCloudOrchestrator**: No documentation
+- **AgentLearning**: No documentation
+- **ProactiveImprovementEngine**: No documentation
+- **ContinuousInnovation**: No documentation
 
-**Functions (9):**
+**Functions (12):**
 - **__init__()**: No documentation
-- **analyze_cross_cloud_costs()**: analysis = {
+- **record_task_execution()**: execution_record = {
             'timestamp': datetime.now().isoformat(),
-            'providers': {
+            'task': task_n
+- **extract_patterns()**: if result.get('success'):
+            pattern = {
+                'task_type': task_type,
+          
+- **analyze_effectiveness()**: effectiveness = {}
+        
+        for task_type, patterns in self.pattern_library.items():
        
-- **analyze_aws_costs()**: return {
-            'provider': 'AWS',
-            'current_spend': 0,
-            'breakdown': {
- 
-- **analyze_gcp_costs()**: return {
-            'provider': 'GCP',
-            'current_spend': 0,
-            'breakdown': {
- 
-- **analyze_azure_costs()**: return {
-            'provider': 'Azure',
-            'current_spend': 0,
-            'breakdown': {
-- **find_arbitrage_opportunities()**: return [
-            {
-                'opportunity': 'Region arbitrage',
-                'savings_p
-- **generate_migration_plan()**: plan = {
-            'workload': workload,
-            'from': from_provider.value,
-            'to'
-- **rightsize_infrastructure()**: optimizations = [
-            ResourceOptimization(
-                resource_id='i-1234567890abcdef0
-- **generate_terraform_multicloud()**: No documentation
+- **get_recommended_approach()**: if task_type not in self.pattern_library or not self.pattern_library[task_type]:
+            return 
+- **adapt_strategy()**: adaptation = {
+            'original_approach': current_approach,
+            'failure_reason': fail
+- **__init__()**: No documentation
+- **detect_issues_before_failure()**: issues = []
+        
+        # High memory usage detection
+        issues.append({
+            'type
+- **suggest_architecture_improvements()**: suggestions = []
+        
+        if repo_analysis.get('module_coupling_high'):
+            suggesti
+- **generate_optimization_roadmap()**: roadmap = {
+            'quarter': 'Q1-2026',
+            'initiatives': [
+                {
+       
 
 ---
 
@@ -134,61 +192,61 @@ import hashlib
 
 ---
 
-### ./scripts/agent_orchestrator.py
+### ./scripts/multicloud_orchestrator.py
 
-**Lines of Code:** 243
+**Lines of Code:** 344
 
 **Module Description:**
 ```
-Core Agent Orchestrator - Multi-repo management and autonomous task coordination
+Multi-Cloud Orchestration Engine - AWS, GCP, Azure workload management
 ```
 
 **Key Imports:**
 ```python
-import os
 import json
-import time
-from datetime import datetime, timedelta
-from typing import Dict, List, Optional
+from typing import Dict, List
+from dataclasses import dataclass
+from enum import Enum
+from datetime import datetime
 ```
 
 **Classes (3):**
-- **AgentTask**: No documentation
-- **RepositoryProfile**: No documentation
-- **AgentOrchestrator**: No documentation
+- **CloudProvider**: No documentation
+- **ResourceOptimization**: No documentation
+- **MultiCloudOrchestrator**: No documentation
 
-**Functions (12):**
+**Functions (9):**
 - **__init__()**: No documentation
-- **load_state()**: if os.path.exists(self.state_file):
-            try:
-                with open(self.state_file, 'r')
-- **save_state()**: state = {
-            'learning_memory': self.learning_memory,
-            'timestamp': datetime.now
-- **discover_repos()**: url = f'{GITHUB_API}/orgs/{org}/repos'
-        params = {'per_page': 100, 'type': 'all'}
-        
-  
-- **build_dependency_graph()**: for repo in repos:
-            self.multi_repo_graph[repo['name']] = {
-                'url': repo['
-- **extract_dependencies()**: # Placeholder - would parse package.json, requirements.txt, go.mod, etc.
-        return []
-
-    def 
-- **create_long_running_task()**: task_id = hashlib.md5(f"{name}{datetime.now().isoformat()}".encode()).hexdigest()[:8]
-        task =
-- **execute_task_with_checkpoints()**: try:
-            task.status = 'running'
-            task.updated_at = datetime.now().isoformat()
-  
-- **execute_checkpoint()**: return {'checkpoint': checkpoint, 'timestamp': datetime.now().isoformat()}
-
-    def analyze_repo_dee
-- **analyze_repo_deeply()**: profile = RepositoryProfile(
-            name=repo_name,
-            url='',
-            language=''
+- **analyze_cross_cloud_costs()**: analysis = {
+            'timestamp': datetime.now().isoformat(),
+            'providers': {
+       
+- **analyze_aws_costs()**: return {
+            'provider': 'AWS',
+            'current_spend': 0,
+            'breakdown': {
+ 
+- **analyze_gcp_costs()**: return {
+            'provider': 'GCP',
+            'current_spend': 0,
+            'breakdown': {
+ 
+- **analyze_azure_costs()**: return {
+            'provider': 'Azure',
+            'current_spend': 0,
+            'breakdown': {
+- **find_arbitrage_opportunities()**: return [
+            {
+                'opportunity': 'Region arbitrage',
+                'savings_p
+- **generate_migration_plan()**: plan = {
+            'workload': workload,
+            'from': from_provider.value,
+            'to'
+- **rightsize_infrastructure()**: optimizations = [
+            ResourceOptimization(
+                resource_id='i-1234567890abcdef0
+- **generate_terraform_multicloud()**: No documentation
 
 ---
 
@@ -241,64 +299,6 @@ from datetime import datetime
     categorized = {}
     for filepath, content in py_files.items():
         categ
-
----
-
-### ./scripts/agent_learning.py
-
-**Lines of Code:** 287
-
-**Module Description:**
-```
-Agent Learning Engine - Continuous improvement and pattern learning
-```
-
-**Key Imports:**
-```python
-import json
-from datetime import datetime, timedelta
-from typing import Dict, List
-from collections import defaultdict
-```
-
-**Classes (3):**
-- **AgentLearning**: No documentation
-- **ProactiveImprovementEngine**: No documentation
-- **ContinuousInnovation**: No documentation
-
-**Functions (12):**
-- **__init__()**: No documentation
-- **record_task_execution()**: execution_record = {
-            'timestamp': datetime.now().isoformat(),
-            'task': task_n
-- **extract_patterns()**: if result.get('success'):
-            pattern = {
-                'task_type': task_type,
-          
-- **analyze_effectiveness()**: effectiveness = {}
-        
-        for task_type, patterns in self.pattern_library.items():
-       
-- **get_recommended_approach()**: if task_type not in self.pattern_library or not self.pattern_library[task_type]:
-            return 
-- **adapt_strategy()**: adaptation = {
-            'original_approach': current_approach,
-            'failure_reason': fail
-- **__init__()**: No documentation
-- **detect_issues_before_failure()**: issues = []
-        
-        # High memory usage detection
-        issues.append({
-            'type
-- **suggest_architecture_improvements()**: suggestions = []
-        
-        if repo_analysis.get('module_coupling_high'):
-            suggesti
-- **generate_optimization_roadmap()**: roadmap = {
-            'quarter': 'Q1-2026',
-            'initiatives': [
-                {
-       
 
 ---
 
