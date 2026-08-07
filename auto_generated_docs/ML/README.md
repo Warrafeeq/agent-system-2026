@@ -1,74 +1,74 @@
 # ML Documentation
 
-**Generated:** 2026-08-07 06:07:15 UTC
+**Generated:** 2026-08-07 08:10:59 UTC
 
 **Total Files:** 5
 
 ## Files
 
-- [./scripts/agent_orchestrator.py](#--scripts-agent_orchestrator-py)
-- [./scripts/compliance_security.py](#--scripts-compliance_security-py)
 - [./scripts/multicloud_orchestrator.py](#--scripts-multicloud_orchestrator-py)
+- [./scripts/compliance_security.py](#--scripts-compliance_security-py)
+- [./scripts/agent_orchestrator.py](#--scripts-agent_orchestrator-py)
 - [./scripts/generate_auto_docs.py](#--scripts-generate_auto_docs-py)
 - [./scripts/agent_learning.py](#--scripts-agent_learning-py)
 
 ## Detailed Documentation
 
-### ./scripts/agent_orchestrator.py
+### ./scripts/multicloud_orchestrator.py
 
-**Lines of Code:** 243
+**Lines of Code:** 344
 
 **Module Description:**
 ```
-Core Agent Orchestrator - Multi-repo management and autonomous task coordination
+Multi-Cloud Orchestration Engine - AWS, GCP, Azure workload management
 ```
 
 **Key Imports:**
 ```python
-import os
 import json
-import time
-from datetime import datetime, timedelta
-from typing import Dict, List, Optional
+from typing import Dict, List
+from dataclasses import dataclass
+from enum import Enum
+from datetime import datetime
 ```
 
 **Classes (3):**
-- **AgentTask**: No documentation
-- **RepositoryProfile**: No documentation
-- **AgentOrchestrator**: No documentation
+- **CloudProvider**: No documentation
+- **ResourceOptimization**: No documentation
+- **MultiCloudOrchestrator**: No documentation
 
-**Functions (12):**
+**Functions (9):**
 - **__init__()**: No documentation
-- **load_state()**: if os.path.exists(self.state_file):
-            try:
-                with open(self.state_file, 'r')
-- **save_state()**: state = {
-            'learning_memory': self.learning_memory,
-            'timestamp': datetime.now
-- **discover_repos()**: url = f'{GITHUB_API}/orgs/{org}/repos'
-        params = {'per_page': 100, 'type': 'all'}
-        
-  
-- **build_dependency_graph()**: for repo in repos:
-            self.multi_repo_graph[repo['name']] = {
-                'url': repo['
-- **extract_dependencies()**: # Placeholder - would parse package.json, requirements.txt, go.mod, etc.
-        return []
-
-    def 
-- **create_long_running_task()**: task_id = hashlib.md5(f"{name}{datetime.now().isoformat()}".encode()).hexdigest()[:8]
-        task =
-- **execute_task_with_checkpoints()**: try:
-            task.status = 'running'
-            task.updated_at = datetime.now().isoformat()
-  
-- **execute_checkpoint()**: return {'checkpoint': checkpoint, 'timestamp': datetime.now().isoformat()}
-
-    def analyze_repo_dee
-- **analyze_repo_deeply()**: profile = RepositoryProfile(
-            name=repo_name,
-            url='',
-            language=''
+- **analyze_cross_cloud_costs()**: analysis = {
+            'timestamp': datetime.now().isoformat(),
+            'providers': {
+       
+- **analyze_aws_costs()**: return {
+            'provider': 'AWS',
+            'current_spend': 0,
+            'breakdown': {
+ 
+- **analyze_gcp_costs()**: return {
+            'provider': 'GCP',
+            'current_spend': 0,
+            'breakdown': {
+ 
+- **analyze_azure_costs()**: return {
+            'provider': 'Azure',
+            'current_spend': 0,
+            'breakdown': {
+- **find_arbitrage_opportunities()**: return [
+            {
+                'opportunity': 'Region arbitrage',
+                'savings_p
+- **generate_migration_plan()**: plan = {
+            'workload': workload,
+            'from': from_provider.value,
+            'to'
+- **rightsize_infrastructure()**: optimizations = [
+            ResourceOptimization(
+                resource_id='i-1234567890abcdef0
+- **generate_terraform_multicloud()**: No documentation
 
 ---
 
@@ -134,61 +134,61 @@ import hashlib
 
 ---
 
-### ./scripts/multicloud_orchestrator.py
+### ./scripts/agent_orchestrator.py
 
-**Lines of Code:** 344
+**Lines of Code:** 243
 
 **Module Description:**
 ```
-Multi-Cloud Orchestration Engine - AWS, GCP, Azure workload management
+Core Agent Orchestrator - Multi-repo management and autonomous task coordination
 ```
 
 **Key Imports:**
 ```python
+import os
 import json
-from typing import Dict, List
-from dataclasses import dataclass
-from enum import Enum
-from datetime import datetime
+import time
+from datetime import datetime, timedelta
+from typing import Dict, List, Optional
 ```
 
 **Classes (3):**
-- **CloudProvider**: No documentation
-- **ResourceOptimization**: No documentation
-- **MultiCloudOrchestrator**: No documentation
+- **AgentTask**: No documentation
+- **RepositoryProfile**: No documentation
+- **AgentOrchestrator**: No documentation
 
-**Functions (9):**
+**Functions (12):**
 - **__init__()**: No documentation
-- **analyze_cross_cloud_costs()**: analysis = {
-            'timestamp': datetime.now().isoformat(),
-            'providers': {
-       
-- **analyze_aws_costs()**: return {
-            'provider': 'AWS',
-            'current_spend': 0,
-            'breakdown': {
- 
-- **analyze_gcp_costs()**: return {
-            'provider': 'GCP',
-            'current_spend': 0,
-            'breakdown': {
- 
-- **analyze_azure_costs()**: return {
-            'provider': 'Azure',
-            'current_spend': 0,
-            'breakdown': {
-- **find_arbitrage_opportunities()**: return [
-            {
-                'opportunity': 'Region arbitrage',
-                'savings_p
-- **generate_migration_plan()**: plan = {
-            'workload': workload,
-            'from': from_provider.value,
-            'to'
-- **rightsize_infrastructure()**: optimizations = [
-            ResourceOptimization(
-                resource_id='i-1234567890abcdef0
-- **generate_terraform_multicloud()**: No documentation
+- **load_state()**: if os.path.exists(self.state_file):
+            try:
+                with open(self.state_file, 'r')
+- **save_state()**: state = {
+            'learning_memory': self.learning_memory,
+            'timestamp': datetime.now
+- **discover_repos()**: url = f'{GITHUB_API}/orgs/{org}/repos'
+        params = {'per_page': 100, 'type': 'all'}
+        
+  
+- **build_dependency_graph()**: for repo in repos:
+            self.multi_repo_graph[repo['name']] = {
+                'url': repo['
+- **extract_dependencies()**: # Placeholder - would parse package.json, requirements.txt, go.mod, etc.
+        return []
+
+    def 
+- **create_long_running_task()**: task_id = hashlib.md5(f"{name}{datetime.now().isoformat()}".encode()).hexdigest()[:8]
+        task =
+- **execute_task_with_checkpoints()**: try:
+            task.status = 'running'
+            task.updated_at = datetime.now().isoformat()
+  
+- **execute_checkpoint()**: return {'checkpoint': checkpoint, 'timestamp': datetime.now().isoformat()}
+
+    def analyze_repo_dee
+- **analyze_repo_deeply()**: profile = RepositoryProfile(
+            name=repo_name,
+            url='',
+            language=''
 
 ---
 
