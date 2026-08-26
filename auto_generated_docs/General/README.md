@@ -1,8 +1,8 @@
 # General Documentation
 
-**Generated:** 2026-08-26 09:37:46 UTC
+**Generated:** 2026-08-26 10:32:12 UTC
 
-**Total Files:** 64
+**Total Files:** 65
 
 ## Files
 
@@ -54,6 +54,7 @@
 - [./projects/cli-tool-20260801-110842/main.py](#--projects-cli-tool-20260801-110842-main-py)
 - [./projects/cli-tool-20260705-112100/main.py](#--projects-cli-tool-20260705-112100-main-py)
 - [./projects/cli-tool-20260811-103912/main.py](#--projects-cli-tool-20260811-103912-main-py)
+- [./projects/cli-tool-20260826-102153/main.py](#--projects-cli-tool-20260826-102153-main-py)
 - [./projects/cli-tool-20260726-111141/main.py](#--projects-cli-tool-20260726-111141-main-py)
 - [./projects/cli-tool-20260729-115136/main.py](#--projects-cli-tool-20260729-115136-main-py)
 - [./projects/cli-tool-20260720-120707/main.py](#--projects-cli-tool-20260720-120707-main-py)
@@ -1390,6 +1391,34 @@ import argparse
 ---
 
 ### ./projects/cli-tool-20260811-103912/main.py
+
+**Lines of Code:** 13
+
+**Module Description:**
+```
+import argparse
+
+def main():
+    parser = argparse.ArgumentParser(description='CLI Tool')
+    parser.add_argument('--name', default='World', help='Name to greet')
+    args = parser.parse_args()
+    print(f"Hello, {args.name}!")
+
+if __name__ == '__main__':
+    main()
+```
+
+**Key Imports:**
+```python
+import argparse
+```
+
+**Functions (1):**
+- **main()**: No documentation
+
+---
+
+### ./projects/cli-tool-20260826-102153/main.py
 
 **Lines of Code:** 13
 
