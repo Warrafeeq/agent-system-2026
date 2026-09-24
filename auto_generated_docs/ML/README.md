@@ -1,16 +1,16 @@
 # ML Documentation
 
-**Generated:** 2026-09-23 22:02:07 UTC
+**Generated:** 2026-09-24 01:03:04 UTC
 
 **Total Files:** 5
 
 ## Files
 
 - [./scripts/multicloud_orchestrator.py](#--scripts-multicloud_orchestrator-py)
-- [./scripts/generate_auto_docs.py](#--scripts-generate_auto_docs-py)
+- [./scripts/agent_orchestrator.py](#--scripts-agent_orchestrator-py)
 - [./scripts/agent_learning.py](#--scripts-agent_learning-py)
 - [./scripts/compliance_security.py](#--scripts-compliance_security-py)
-- [./scripts/agent_orchestrator.py](#--scripts-agent_orchestrator-py)
+- [./scripts/generate_auto_docs.py](#--scripts-generate_auto_docs-py)
 
 ## Detailed Documentation
 
@@ -72,55 +72,61 @@ from datetime import datetime
 
 ---
 
-### ./scripts/generate_auto_docs.py
+### ./scripts/agent_orchestrator.py
 
-**Lines of Code:** 215
+**Lines of Code:** 243
 
 **Module Description:**
 ```
-Auto-generate documentation for Python code organized by category
+Core Agent Orchestrator - Multi-repo management and autonomous task coordination
 ```
 
 **Key Imports:**
 ```python
 import os
 import json
-from pathlib import Path
-from datetime import datetime
+import time
+from datetime import datetime, timedelta
+from typing import Dict, List, Optional
 ```
 
-**Functions (7):**
-- **categorize_file()**: filename = filepath.lower()
-    content_lower = content.lower()
-    
-    for category, keywords in C
-- **extract_docstring()**: lines = content.split('\n')
-    in_docstring = False
-    docstring = []
-    
-    for line in lines:
-- **extract_functions()**: functions = []
-    lines = content.split('\n')
-    
-    for i, line in enumerate(lines):
-        if 
-- **extract_classes()**: classes = []
-    lines = content.split('\n')
-    
-    for i, line in enumerate(lines):
-        if li
-- **generate_file_documentation()**: try:
-        # Extract components
-        docstring = extract_docstring(content)
-        functions =
-- **scan_python_files()**: py_files = {}
-    
-    for root, dirs, files in os.walk(root_dir):
-        # Skip hidden and virtual
-- **generate_markdown_docs()**: # Categorize files
-    categorized = {}
-    for filepath, content in py_files.items():
-        categ
+**Classes (3):**
+- **AgentTask**: No documentation
+- **RepositoryProfile**: No documentation
+- **AgentOrchestrator**: No documentation
+
+**Functions (12):**
+- **__init__()**: No documentation
+- **load_state()**: if os.path.exists(self.state_file):
+            try:
+                with open(self.state_file, 'r')
+- **save_state()**: state = {
+            'learning_memory': self.learning_memory,
+            'timestamp': datetime.now
+- **discover_repos()**: url = f'{GITHUB_API}/orgs/{org}/repos'
+        params = {'per_page': 100, 'type': 'all'}
+        
+  
+- **build_dependency_graph()**: for repo in repos:
+            self.multi_repo_graph[repo['name']] = {
+                'url': repo['
+- **extract_dependencies()**: # Placeholder - would parse package.json, requirements.txt, go.mod, etc.
+        return []
+
+    def 
+- **create_long_running_task()**: task_id = hashlib.md5(f"{name}{datetime.now().isoformat()}".encode()).hexdigest()[:8]
+        task =
+- **execute_task_with_checkpoints()**: try:
+            task.status = 'running'
+            task.updated_at = datetime.now().isoformat()
+  
+- **execute_checkpoint()**: return {'checkpoint': checkpoint, 'timestamp': datetime.now().isoformat()}
+
+    def analyze_repo_dee
+- **analyze_repo_deeply()**: profile = RepositoryProfile(
+            name=repo_name,
+            url='',
+            language=''
 
 ---
 
@@ -244,61 +250,55 @@ import hashlib
 
 ---
 
-### ./scripts/agent_orchestrator.py
+### ./scripts/generate_auto_docs.py
 
-**Lines of Code:** 243
+**Lines of Code:** 215
 
 **Module Description:**
 ```
-Core Agent Orchestrator - Multi-repo management and autonomous task coordination
+Auto-generate documentation for Python code organized by category
 ```
 
 **Key Imports:**
 ```python
 import os
 import json
-import time
-from datetime import datetime, timedelta
-from typing import Dict, List, Optional
+from pathlib import Path
+from datetime import datetime
 ```
 
-**Classes (3):**
-- **AgentTask**: No documentation
-- **RepositoryProfile**: No documentation
-- **AgentOrchestrator**: No documentation
-
-**Functions (12):**
-- **__init__()**: No documentation
-- **load_state()**: if os.path.exists(self.state_file):
-            try:
-                with open(self.state_file, 'r')
-- **save_state()**: state = {
-            'learning_memory': self.learning_memory,
-            'timestamp': datetime.now
-- **discover_repos()**: url = f'{GITHUB_API}/orgs/{org}/repos'
-        params = {'per_page': 100, 'type': 'all'}
-        
-  
-- **build_dependency_graph()**: for repo in repos:
-            self.multi_repo_graph[repo['name']] = {
-                'url': repo['
-- **extract_dependencies()**: # Placeholder - would parse package.json, requirements.txt, go.mod, etc.
-        return []
-
-    def 
-- **create_long_running_task()**: task_id = hashlib.md5(f"{name}{datetime.now().isoformat()}".encode()).hexdigest()[:8]
-        task =
-- **execute_task_with_checkpoints()**: try:
-            task.status = 'running'
-            task.updated_at = datetime.now().isoformat()
-  
-- **execute_checkpoint()**: return {'checkpoint': checkpoint, 'timestamp': datetime.now().isoformat()}
-
-    def analyze_repo_dee
-- **analyze_repo_deeply()**: profile = RepositoryProfile(
-            name=repo_name,
-            url='',
-            language=''
+**Functions (7):**
+- **categorize_file()**: filename = filepath.lower()
+    content_lower = content.lower()
+    
+    for category, keywords in C
+- **extract_docstring()**: lines = content.split('\n')
+    in_docstring = False
+    docstring = []
+    
+    for line in lines:
+- **extract_functions()**: functions = []
+    lines = content.split('\n')
+    
+    for i, line in enumerate(lines):
+        if 
+- **extract_classes()**: classes = []
+    lines = content.split('\n')
+    
+    for i, line in enumerate(lines):
+        if li
+- **generate_file_documentation()**: try:
+        # Extract components
+        docstring = extract_docstring(content)
+        functions =
+- **scan_python_files()**: py_files = {}
+    
+    for root, dirs, files in os.walk(root_dir):
+        # Skip hidden and virtual
+- **generate_markdown_docs()**: # Categorize files
+    categorized = {}
+    for filepath, content in py_files.items():
+        categ
 
 ---
 
