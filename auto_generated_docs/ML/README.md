@@ -1,74 +1,78 @@
 # ML Documentation
 
-**Generated:** 2026-10-20 18:19:41 UTC
+**Generated:** 2026-10-20 22:04:58 UTC
 
 **Total Files:** 5
 
 ## Files
 
-- [./scripts/agent_learning.py](#--scripts-agent_learning-py)
+- [./scripts/compliance_security.py](#--scripts-compliance_security-py)
 - [./scripts/agent_orchestrator.py](#--scripts-agent_orchestrator-py)
 - [./scripts/multicloud_orchestrator.py](#--scripts-multicloud_orchestrator-py)
-- [./scripts/compliance_security.py](#--scripts-compliance_security-py)
+- [./scripts/agent_learning.py](#--scripts-agent_learning-py)
 - [./scripts/generate_auto_docs.py](#--scripts-generate_auto_docs-py)
 
 ## Detailed Documentation
 
-### ./scripts/agent_learning.py
+### ./scripts/compliance_security.py
 
-**Lines of Code:** 287
+**Lines of Code:** 278
 
 **Module Description:**
 ```
-Agent Learning Engine - Continuous improvement and pattern learning
+Compliance & Security Hardening Engine - Enterprise-grade security automation
 ```
 
 **Key Imports:**
 ```python
 import json
-from datetime import datetime, timedelta
-from typing import Dict, List
-from collections import defaultdict
+from datetime import datetime
+from typing import List, Dict
+from enum import Enum
+import hashlib
 ```
 
 **Classes (3):**
-- **AgentLearning**: No documentation
-- **ProactiveImprovementEngine**: No documentation
-- **ContinuousInnovation**: No documentation
+- **ComplianceFramework**: No documentation
+- **ComplianceChecker**: No documentation
+- **SecurityHardener**: No documentation
 
-**Functions (12):**
+**Functions (14):**
 - **__init__()**: No documentation
-- **record_task_execution()**: execution_record = {
-            'timestamp': datetime.now().isoformat(),
-            'task': task_n
-- **extract_patterns()**: if result.get('success'):
-            pattern = {
-                'task_type': task_type,
-          
-- **analyze_effectiveness()**: effectiveness = {}
+- **generate_compliance_checklist()**: checklists = {
+            ComplianceFramework.SOC2: self.soc2_checklist(),
+            ComplianceFr
+- **soc2_checklist()**: return [
+            {
+                'criterion': 'CC6.1',
+                'title': 'Logical Acces
+- **hipaa_checklist()**: return [
+            {
+                'requirement': 'Physical Safeguards',
+                'items'
+- **gdpr_checklist()**: return [
+            {
+                'article': 'Article 32',
+                'title': 'Security o
+- **pci_dss_checklist()**: return [
+            {
+                'requirement': '1-6',
+                'title': 'Build and Mai
+- **iso27001_checklist()**: return [
+            {
+                'control': 'A.9',
+                'title': 'Access Control',
+
+- **audit_compliance()**: checklist = self.generate_compliance_checklist(framework)
         
-        for task_type, patterns in self.pattern_library.items():
-       
-- **get_recommended_approach()**: if task_type not in self.pattern_library or not self.pattern_library[task_type]:
-            return 
-- **adapt_strategy()**: adaptation = {
-            'original_approach': current_approach,
-            'failure_reason': fail
-- **__init__()**: No documentation
-- **detect_issues_before_failure()**: issues = []
+        audit_result = {
         
-        # High memory usage detection
-        issues.append({
-            'type
-- **suggest_architecture_improvements()**: suggestions = []
-        
-        if repo_analysis.get('module_coupling_high'):
-            suggesti
-- **generate_optimization_roadmap()**: roadmap = {
-            'quarter': 'Q1-2026',
-            'initiatives': [
-                {
-       
+- **generate_audit_trail_id()**: import hashlib
+        data = f"{datetime.now().isoformat()}{len(self.audit_trail)}"
+        return 
+- **export_audit_trail()**: return {
+            'audit_trail': self.audit_trail,
+            'export_timestamp': datetime.now()
 
 ---
 
@@ -188,65 +192,61 @@ from datetime import datetime
 
 ---
 
-### ./scripts/compliance_security.py
+### ./scripts/agent_learning.py
 
-**Lines of Code:** 278
+**Lines of Code:** 287
 
 **Module Description:**
 ```
-Compliance & Security Hardening Engine - Enterprise-grade security automation
+Agent Learning Engine - Continuous improvement and pattern learning
 ```
 
 **Key Imports:**
 ```python
 import json
-from datetime import datetime
-from typing import List, Dict
-from enum import Enum
-import hashlib
+from datetime import datetime, timedelta
+from typing import Dict, List
+from collections import defaultdict
 ```
 
 **Classes (3):**
-- **ComplianceFramework**: No documentation
-- **ComplianceChecker**: No documentation
-- **SecurityHardener**: No documentation
+- **AgentLearning**: No documentation
+- **ProactiveImprovementEngine**: No documentation
+- **ContinuousInnovation**: No documentation
 
-**Functions (14):**
+**Functions (12):**
 - **__init__()**: No documentation
-- **generate_compliance_checklist()**: checklists = {
-            ComplianceFramework.SOC2: self.soc2_checklist(),
-            ComplianceFr
-- **soc2_checklist()**: return [
-            {
-                'criterion': 'CC6.1',
-                'title': 'Logical Acces
-- **hipaa_checklist()**: return [
-            {
-                'requirement': 'Physical Safeguards',
-                'items'
-- **gdpr_checklist()**: return [
-            {
-                'article': 'Article 32',
-                'title': 'Security o
-- **pci_dss_checklist()**: return [
-            {
-                'requirement': '1-6',
-                'title': 'Build and Mai
-- **iso27001_checklist()**: return [
-            {
-                'control': 'A.9',
-                'title': 'Access Control',
-
-- **audit_compliance()**: checklist = self.generate_compliance_checklist(framework)
+- **record_task_execution()**: execution_record = {
+            'timestamp': datetime.now().isoformat(),
+            'task': task_n
+- **extract_patterns()**: if result.get('success'):
+            pattern = {
+                'task_type': task_type,
+          
+- **analyze_effectiveness()**: effectiveness = {}
         
-        audit_result = {
+        for task_type, patterns in self.pattern_library.items():
+       
+- **get_recommended_approach()**: if task_type not in self.pattern_library or not self.pattern_library[task_type]:
+            return 
+- **adapt_strategy()**: adaptation = {
+            'original_approach': current_approach,
+            'failure_reason': fail
+- **__init__()**: No documentation
+- **detect_issues_before_failure()**: issues = []
         
-- **generate_audit_trail_id()**: import hashlib
-        data = f"{datetime.now().isoformat()}{len(self.audit_trail)}"
-        return 
-- **export_audit_trail()**: return {
-            'audit_trail': self.audit_trail,
-            'export_timestamp': datetime.now()
+        # High memory usage detection
+        issues.append({
+            'type
+- **suggest_architecture_improvements()**: suggestions = []
+        
+        if repo_analysis.get('module_coupling_high'):
+            suggesti
+- **generate_optimization_roadmap()**: roadmap = {
+            'quarter': 'Q1-2026',
+            'initiatives': [
+                {
+       
 
 ---
 
