@@ -1,74 +1,74 @@
 # ML Documentation
 
-**Generated:** 2026-10-19 22:51:48 UTC
+**Generated:** 2026-10-20 01:33:49 UTC
 
 **Total Files:** 5
 
 ## Files
 
-- [./scripts/multicloud_orchestrator.py](#--scripts-multicloud_orchestrator-py)
-- [./scripts/agent_orchestrator.py](#--scripts-agent_orchestrator-py)
 - [./scripts/agent_learning.py](#--scripts-agent_learning-py)
+- [./scripts/agent_orchestrator.py](#--scripts-agent_orchestrator-py)
+- [./scripts/multicloud_orchestrator.py](#--scripts-multicloud_orchestrator-py)
 - [./scripts/compliance_security.py](#--scripts-compliance_security-py)
 - [./scripts/generate_auto_docs.py](#--scripts-generate_auto_docs-py)
 
 ## Detailed Documentation
 
-### ./scripts/multicloud_orchestrator.py
+### ./scripts/agent_learning.py
 
-**Lines of Code:** 344
+**Lines of Code:** 287
 
 **Module Description:**
 ```
-Multi-Cloud Orchestration Engine - AWS, GCP, Azure workload management
+Agent Learning Engine - Continuous improvement and pattern learning
 ```
 
 **Key Imports:**
 ```python
 import json
+from datetime import datetime, timedelta
 from typing import Dict, List
-from dataclasses import dataclass
-from enum import Enum
-from datetime import datetime
+from collections import defaultdict
 ```
 
 **Classes (3):**
-- **CloudProvider**: No documentation
-- **ResourceOptimization**: No documentation
-- **MultiCloudOrchestrator**: No documentation
+- **AgentLearning**: No documentation
+- **ProactiveImprovementEngine**: No documentation
+- **ContinuousInnovation**: No documentation
 
-**Functions (9):**
+**Functions (12):**
 - **__init__()**: No documentation
-- **analyze_cross_cloud_costs()**: analysis = {
+- **record_task_execution()**: execution_record = {
             'timestamp': datetime.now().isoformat(),
-            'providers': {
+            'task': task_n
+- **extract_patterns()**: if result.get('success'):
+            pattern = {
+                'task_type': task_type,
+          
+- **analyze_effectiveness()**: effectiveness = {}
+        
+        for task_type, patterns in self.pattern_library.items():
        
-- **analyze_aws_costs()**: return {
-            'provider': 'AWS',
-            'current_spend': 0,
-            'breakdown': {
- 
-- **analyze_gcp_costs()**: return {
-            'provider': 'GCP',
-            'current_spend': 0,
-            'breakdown': {
- 
-- **analyze_azure_costs()**: return {
-            'provider': 'Azure',
-            'current_spend': 0,
-            'breakdown': {
-- **find_arbitrage_opportunities()**: return [
-            {
-                'opportunity': 'Region arbitrage',
-                'savings_p
-- **generate_migration_plan()**: plan = {
-            'workload': workload,
-            'from': from_provider.value,
-            'to'
-- **rightsize_infrastructure()**: optimizations = [
-            ResourceOptimization(
-                resource_id='i-1234567890abcdef0
-- **generate_terraform_multicloud()**: No documentation
+- **get_recommended_approach()**: if task_type not in self.pattern_library or not self.pattern_library[task_type]:
+            return 
+- **adapt_strategy()**: adaptation = {
+            'original_approach': current_approach,
+            'failure_reason': fail
+- **__init__()**: No documentation
+- **detect_issues_before_failure()**: issues = []
+        
+        # High memory usage detection
+        issues.append({
+            'type
+- **suggest_architecture_improvements()**: suggestions = []
+        
+        if repo_analysis.get('module_coupling_high'):
+            suggesti
+- **generate_optimization_roadmap()**: roadmap = {
+            'quarter': 'Q1-2026',
+            'initiatives': [
+                {
+       
 
 ---
 
@@ -130,61 +130,61 @@ from typing import Dict, List, Optional
 
 ---
 
-### ./scripts/agent_learning.py
+### ./scripts/multicloud_orchestrator.py
 
-**Lines of Code:** 287
+**Lines of Code:** 344
 
 **Module Description:**
 ```
-Agent Learning Engine - Continuous improvement and pattern learning
+Multi-Cloud Orchestration Engine - AWS, GCP, Azure workload management
 ```
 
 **Key Imports:**
 ```python
 import json
-from datetime import datetime, timedelta
 from typing import Dict, List
-from collections import defaultdict
+from dataclasses import dataclass
+from enum import Enum
+from datetime import datetime
 ```
 
 **Classes (3):**
-- **AgentLearning**: No documentation
-- **ProactiveImprovementEngine**: No documentation
-- **ContinuousInnovation**: No documentation
+- **CloudProvider**: No documentation
+- **ResourceOptimization**: No documentation
+- **MultiCloudOrchestrator**: No documentation
 
-**Functions (12):**
+**Functions (9):**
 - **__init__()**: No documentation
-- **record_task_execution()**: execution_record = {
+- **analyze_cross_cloud_costs()**: analysis = {
             'timestamp': datetime.now().isoformat(),
-            'task': task_n
-- **extract_patterns()**: if result.get('success'):
-            pattern = {
-                'task_type': task_type,
-          
-- **analyze_effectiveness()**: effectiveness = {}
-        
-        for task_type, patterns in self.pattern_library.items():
+            'providers': {
        
-- **get_recommended_approach()**: if task_type not in self.pattern_library or not self.pattern_library[task_type]:
-            return 
-- **adapt_strategy()**: adaptation = {
-            'original_approach': current_approach,
-            'failure_reason': fail
-- **__init__()**: No documentation
-- **detect_issues_before_failure()**: issues = []
-        
-        # High memory usage detection
-        issues.append({
-            'type
-- **suggest_architecture_improvements()**: suggestions = []
-        
-        if repo_analysis.get('module_coupling_high'):
-            suggesti
-- **generate_optimization_roadmap()**: roadmap = {
-            'quarter': 'Q1-2026',
-            'initiatives': [
-                {
-       
+- **analyze_aws_costs()**: return {
+            'provider': 'AWS',
+            'current_spend': 0,
+            'breakdown': {
+ 
+- **analyze_gcp_costs()**: return {
+            'provider': 'GCP',
+            'current_spend': 0,
+            'breakdown': {
+ 
+- **analyze_azure_costs()**: return {
+            'provider': 'Azure',
+            'current_spend': 0,
+            'breakdown': {
+- **find_arbitrage_opportunities()**: return [
+            {
+                'opportunity': 'Region arbitrage',
+                'savings_p
+- **generate_migration_plan()**: plan = {
+            'workload': workload,
+            'from': from_provider.value,
+            'to'
+- **rightsize_infrastructure()**: optimizations = [
+            ResourceOptimization(
+                resource_id='i-1234567890abcdef0
+- **generate_terraform_multicloud()**: No documentation
 
 ---
 
