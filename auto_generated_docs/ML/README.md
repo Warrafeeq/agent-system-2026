@@ -1,186 +1,18 @@
 # ML Documentation
 
-**Generated:** 2026-10-22 13:25:53 UTC
+**Generated:** 2026-10-22 18:16:05 UTC
 
 **Total Files:** 5
 
 ## Files
 
-- [./scripts/generate_auto_docs.py](#--scripts-generate_auto_docs-py)
-- [./scripts/multicloud_orchestrator.py](#--scripts-multicloud_orchestrator-py)
-- [./scripts/agent_orchestrator.py](#--scripts-agent_orchestrator-py)
 - [./scripts/compliance_security.py](#--scripts-compliance_security-py)
+- [./scripts/agent_orchestrator.py](#--scripts-agent_orchestrator-py)
+- [./scripts/multicloud_orchestrator.py](#--scripts-multicloud_orchestrator-py)
 - [./scripts/agent_learning.py](#--scripts-agent_learning-py)
+- [./scripts/generate_auto_docs.py](#--scripts-generate_auto_docs-py)
 
 ## Detailed Documentation
-
-### ./scripts/generate_auto_docs.py
-
-**Lines of Code:** 215
-
-**Module Description:**
-```
-Auto-generate documentation for Python code organized by category
-```
-
-**Key Imports:**
-```python
-import os
-import json
-from pathlib import Path
-from datetime import datetime
-```
-
-**Functions (7):**
-- **categorize_file()**: filename = filepath.lower()
-    content_lower = content.lower()
-    
-    for category, keywords in C
-- **extract_docstring()**: lines = content.split('\n')
-    in_docstring = False
-    docstring = []
-    
-    for line in lines:
-- **extract_functions()**: functions = []
-    lines = content.split('\n')
-    
-    for i, line in enumerate(lines):
-        if 
-- **extract_classes()**: classes = []
-    lines = content.split('\n')
-    
-    for i, line in enumerate(lines):
-        if li
-- **generate_file_documentation()**: try:
-        # Extract components
-        docstring = extract_docstring(content)
-        functions =
-- **scan_python_files()**: py_files = {}
-    
-    for root, dirs, files in os.walk(root_dir):
-        # Skip hidden and virtual
-- **generate_markdown_docs()**: # Categorize files
-    categorized = {}
-    for filepath, content in py_files.items():
-        categ
-
----
-
-### ./scripts/multicloud_orchestrator.py
-
-**Lines of Code:** 344
-
-**Module Description:**
-```
-Multi-Cloud Orchestration Engine - AWS, GCP, Azure workload management
-```
-
-**Key Imports:**
-```python
-import json
-from typing import Dict, List
-from dataclasses import dataclass
-from enum import Enum
-from datetime import datetime
-```
-
-**Classes (3):**
-- **CloudProvider**: No documentation
-- **ResourceOptimization**: No documentation
-- **MultiCloudOrchestrator**: No documentation
-
-**Functions (9):**
-- **__init__()**: No documentation
-- **analyze_cross_cloud_costs()**: analysis = {
-            'timestamp': datetime.now().isoformat(),
-            'providers': {
-       
-- **analyze_aws_costs()**: return {
-            'provider': 'AWS',
-            'current_spend': 0,
-            'breakdown': {
- 
-- **analyze_gcp_costs()**: return {
-            'provider': 'GCP',
-            'current_spend': 0,
-            'breakdown': {
- 
-- **analyze_azure_costs()**: return {
-            'provider': 'Azure',
-            'current_spend': 0,
-            'breakdown': {
-- **find_arbitrage_opportunities()**: return [
-            {
-                'opportunity': 'Region arbitrage',
-                'savings_p
-- **generate_migration_plan()**: plan = {
-            'workload': workload,
-            'from': from_provider.value,
-            'to'
-- **rightsize_infrastructure()**: optimizations = [
-            ResourceOptimization(
-                resource_id='i-1234567890abcdef0
-- **generate_terraform_multicloud()**: No documentation
-
----
-
-### ./scripts/agent_orchestrator.py
-
-**Lines of Code:** 243
-
-**Module Description:**
-```
-Core Agent Orchestrator - Multi-repo management and autonomous task coordination
-```
-
-**Key Imports:**
-```python
-import os
-import json
-import time
-from datetime import datetime, timedelta
-from typing import Dict, List, Optional
-```
-
-**Classes (3):**
-- **AgentTask**: No documentation
-- **RepositoryProfile**: No documentation
-- **AgentOrchestrator**: No documentation
-
-**Functions (12):**
-- **__init__()**: No documentation
-- **load_state()**: if os.path.exists(self.state_file):
-            try:
-                with open(self.state_file, 'r')
-- **save_state()**: state = {
-            'learning_memory': self.learning_memory,
-            'timestamp': datetime.now
-- **discover_repos()**: url = f'{GITHUB_API}/orgs/{org}/repos'
-        params = {'per_page': 100, 'type': 'all'}
-        
-  
-- **build_dependency_graph()**: for repo in repos:
-            self.multi_repo_graph[repo['name']] = {
-                'url': repo['
-- **extract_dependencies()**: # Placeholder - would parse package.json, requirements.txt, go.mod, etc.
-        return []
-
-    def 
-- **create_long_running_task()**: task_id = hashlib.md5(f"{name}{datetime.now().isoformat()}".encode()).hexdigest()[:8]
-        task =
-- **execute_task_with_checkpoints()**: try:
-            task.status = 'running'
-            task.updated_at = datetime.now().isoformat()
-  
-- **execute_checkpoint()**: return {'checkpoint': checkpoint, 'timestamp': datetime.now().isoformat()}
-
-    def analyze_repo_dee
-- **analyze_repo_deeply()**: profile = RepositoryProfile(
-            name=repo_name,
-            url='',
-            language=''
-
----
 
 ### ./scripts/compliance_security.py
 
@@ -244,6 +76,122 @@ import hashlib
 
 ---
 
+### ./scripts/agent_orchestrator.py
+
+**Lines of Code:** 243
+
+**Module Description:**
+```
+Core Agent Orchestrator - Multi-repo management and autonomous task coordination
+```
+
+**Key Imports:**
+```python
+import os
+import json
+import time
+from datetime import datetime, timedelta
+from typing import Dict, List, Optional
+```
+
+**Classes (3):**
+- **AgentTask**: No documentation
+- **RepositoryProfile**: No documentation
+- **AgentOrchestrator**: No documentation
+
+**Functions (12):**
+- **__init__()**: No documentation
+- **load_state()**: if os.path.exists(self.state_file):
+            try:
+                with open(self.state_file, 'r')
+- **save_state()**: state = {
+            'learning_memory': self.learning_memory,
+            'timestamp': datetime.now
+- **discover_repos()**: url = f'{GITHUB_API}/orgs/{org}/repos'
+        params = {'per_page': 100, 'type': 'all'}
+        
+  
+- **build_dependency_graph()**: for repo in repos:
+            self.multi_repo_graph[repo['name']] = {
+                'url': repo['
+- **extract_dependencies()**: # Placeholder - would parse package.json, requirements.txt, go.mod, etc.
+        return []
+
+    def 
+- **create_long_running_task()**: task_id = hashlib.md5(f"{name}{datetime.now().isoformat()}".encode()).hexdigest()[:8]
+        task =
+- **execute_task_with_checkpoints()**: try:
+            task.status = 'running'
+            task.updated_at = datetime.now().isoformat()
+  
+- **execute_checkpoint()**: return {'checkpoint': checkpoint, 'timestamp': datetime.now().isoformat()}
+
+    def analyze_repo_dee
+- **analyze_repo_deeply()**: profile = RepositoryProfile(
+            name=repo_name,
+            url='',
+            language=''
+
+---
+
+### ./scripts/multicloud_orchestrator.py
+
+**Lines of Code:** 344
+
+**Module Description:**
+```
+Multi-Cloud Orchestration Engine - AWS, GCP, Azure workload management
+```
+
+**Key Imports:**
+```python
+import json
+from typing import Dict, List
+from dataclasses import dataclass
+from enum import Enum
+from datetime import datetime
+```
+
+**Classes (3):**
+- **CloudProvider**: No documentation
+- **ResourceOptimization**: No documentation
+- **MultiCloudOrchestrator**: No documentation
+
+**Functions (9):**
+- **__init__()**: No documentation
+- **analyze_cross_cloud_costs()**: analysis = {
+            'timestamp': datetime.now().isoformat(),
+            'providers': {
+       
+- **analyze_aws_costs()**: return {
+            'provider': 'AWS',
+            'current_spend': 0,
+            'breakdown': {
+ 
+- **analyze_gcp_costs()**: return {
+            'provider': 'GCP',
+            'current_spend': 0,
+            'breakdown': {
+ 
+- **analyze_azure_costs()**: return {
+            'provider': 'Azure',
+            'current_spend': 0,
+            'breakdown': {
+- **find_arbitrage_opportunities()**: return [
+            {
+                'opportunity': 'Region arbitrage',
+                'savings_p
+- **generate_migration_plan()**: plan = {
+            'workload': workload,
+            'from': from_provider.value,
+            'to'
+- **rightsize_infrastructure()**: optimizations = [
+            ResourceOptimization(
+                resource_id='i-1234567890abcdef0
+- **generate_terraform_multicloud()**: No documentation
+
+---
+
 ### ./scripts/agent_learning.py
 
 **Lines of Code:** 287
@@ -299,6 +247,58 @@ from collections import defaultdict
             'initiatives': [
                 {
        
+
+---
+
+### ./scripts/generate_auto_docs.py
+
+**Lines of Code:** 215
+
+**Module Description:**
+```
+Auto-generate documentation for Python code organized by category
+```
+
+**Key Imports:**
+```python
+import os
+import json
+from pathlib import Path
+from datetime import datetime
+```
+
+**Functions (7):**
+- **categorize_file()**: filename = filepath.lower()
+    content_lower = content.lower()
+    
+    for category, keywords in C
+- **extract_docstring()**: lines = content.split('\n')
+    in_docstring = False
+    docstring = []
+    
+    for line in lines:
+- **extract_functions()**: functions = []
+    lines = content.split('\n')
+    
+    for i, line in enumerate(lines):
+        if 
+- **extract_classes()**: classes = []
+    lines = content.split('\n')
+    
+    for i, line in enumerate(lines):
+        if li
+- **generate_file_documentation()**: try:
+        # Extract components
+        docstring = extract_docstring(content)
+        functions =
+- **scan_python_files()**: py_files = {}
+    
+    for root, dirs, files in os.walk(root_dir):
+        # Skip hidden and virtual
+- **generate_markdown_docs()**: # Categorize files
+    categorized = {}
+    for filepath, content in py_files.items():
+        categ
 
 ---
 
