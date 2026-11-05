@@ -1,78 +1,68 @@
 # ML Documentation
 
-**Generated:** 2026-11-05 00:08:35 UTC
+**Generated:** 2026-11-05 07:41:12 UTC
 
 **Total Files:** 5
 
 ## Files
 
-- [./scripts/compliance_security.py](#--scripts-compliance_security-py)
-- [./scripts/agent_learning.py](#--scripts-agent_learning-py)
 - [./scripts/generate_auto_docs.py](#--scripts-generate_auto_docs-py)
+- [./scripts/agent_learning.py](#--scripts-agent_learning-py)
 - [./scripts/multicloud_orchestrator.py](#--scripts-multicloud_orchestrator-py)
 - [./scripts/agent_orchestrator.py](#--scripts-agent_orchestrator-py)
+- [./scripts/compliance_security.py](#--scripts-compliance_security-py)
 
 ## Detailed Documentation
 
-### ./scripts/compliance_security.py
+### ./scripts/generate_auto_docs.py
 
-**Lines of Code:** 278
+**Lines of Code:** 215
 
 **Module Description:**
 ```
-Compliance & Security Hardening Engine - Enterprise-grade security automation
+Auto-generate documentation for Python code organized by category
 ```
 
 **Key Imports:**
 ```python
+import os
 import json
+from pathlib import Path
 from datetime import datetime
-from typing import List, Dict
-from enum import Enum
-import hashlib
 ```
 
-**Classes (3):**
-- **ComplianceFramework**: No documentation
-- **ComplianceChecker**: No documentation
-- **SecurityHardener**: No documentation
-
-**Functions (14):**
-- **__init__()**: No documentation
-- **generate_compliance_checklist()**: checklists = {
-            ComplianceFramework.SOC2: self.soc2_checklist(),
-            ComplianceFr
-- **soc2_checklist()**: return [
-            {
-                'criterion': 'CC6.1',
-                'title': 'Logical Acces
-- **hipaa_checklist()**: return [
-            {
-                'requirement': 'Physical Safeguards',
-                'items'
-- **gdpr_checklist()**: return [
-            {
-                'article': 'Article 32',
-                'title': 'Security o
-- **pci_dss_checklist()**: return [
-            {
-                'requirement': '1-6',
-                'title': 'Build and Mai
-- **iso27001_checklist()**: return [
-            {
-                'control': 'A.9',
-                'title': 'Access Control',
-
-- **audit_compliance()**: checklist = self.generate_compliance_checklist(framework)
-        
-        audit_result = {
-        
-- **generate_audit_trail_id()**: import hashlib
-        data = f"{datetime.now().isoformat()}{len(self.audit_trail)}"
-        return 
-- **export_audit_trail()**: return {
-            'audit_trail': self.audit_trail,
-            'export_timestamp': datetime.now()
+**Functions (7):**
+- **categorize_file()**: filename = filepath.lower()
+    content_lower = content.lower()
+    
+    for category, keywords in C
+- **extract_docstring()**: lines = content.split('\n')
+    in_docstring = False
+    docstring = []
+    
+    for line in lines:
+- **extract_functions()**: functions = []
+    lines = content.split('\n')
+    
+    for i, line in enumerate(lines):
+        if 
+- **extract_classes()**: classes = []
+    lines = content.split('\n')
+    
+    for i, line in enumerate(lines):
+        if li
+- **generate_file_documentation()**: try:
+        # Extract components
+        docstring = extract_docstring(content)
+        functions =
+- **scan_python_files()**: py_files = {}
+    
+    for root, dirs, files in os.walk(root_dir):
+        # Skip hidden and virtual
+- **generate_markdown_docs()**: # Categorize files
+    categorized = {}
+    for filepath, content in py_files.items():
+        categ
 
 ---
 
@@ -131,58 +121,6 @@ from collections import defaultdict
             'initiatives': [
                 {
        
-
----
-
-### ./scripts/generate_auto_docs.py
-
-**Lines of Code:** 215
-
-**Module Description:**
-```
-Auto-generate documentation for Python code organized by category
-```
-
-**Key Imports:**
-```python
-import os
-import json
-from pathlib import Path
-from datetime import datetime
-```
-
-**Functions (7):**
-- **categorize_file()**: filename = filepath.lower()
-    content_lower = content.lower()
-    
-    for category, keywords in C
-- **extract_docstring()**: lines = content.split('\n')
-    in_docstring = False
-    docstring = []
-    
-    for line in lines:
-- **extract_functions()**: functions = []
-    lines = content.split('\n')
-    
-    for i, line in enumerate(lines):
-        if 
-- **extract_classes()**: classes = []
-    lines = content.split('\n')
-    
-    for i, line in enumerate(lines):
-        if li
-- **generate_file_documentation()**: try:
-        # Extract components
-        docstring = extract_docstring(content)
-        functions =
-- **scan_python_files()**: py_files = {}
-    
-    for root, dirs, files in os.walk(root_dir):
-        # Skip hidden and virtual
-- **generate_markdown_docs()**: # Categorize files
-    categorized = {}
-    for filepath, content in py_files.items():
-        categ
 
 ---
 
@@ -299,6 +237,68 @@ from typing import Dict, List, Optional
             name=repo_name,
             url='',
             language=''
+
+---
+
+### ./scripts/compliance_security.py
+
+**Lines of Code:** 278
+
+**Module Description:**
+```
+Compliance & Security Hardening Engine - Enterprise-grade security automation
+```
+
+**Key Imports:**
+```python
+import json
+from datetime import datetime
+from typing import List, Dict
+from enum import Enum
+import hashlib
+```
+
+**Classes (3):**
+- **ComplianceFramework**: No documentation
+- **ComplianceChecker**: No documentation
+- **SecurityHardener**: No documentation
+
+**Functions (14):**
+- **__init__()**: No documentation
+- **generate_compliance_checklist()**: checklists = {
+            ComplianceFramework.SOC2: self.soc2_checklist(),
+            ComplianceFr
+- **soc2_checklist()**: return [
+            {
+                'criterion': 'CC6.1',
+                'title': 'Logical Acces
+- **hipaa_checklist()**: return [
+            {
+                'requirement': 'Physical Safeguards',
+                'items'
+- **gdpr_checklist()**: return [
+            {
+                'article': 'Article 32',
+                'title': 'Security o
+- **pci_dss_checklist()**: return [
+            {
+                'requirement': '1-6',
+                'title': 'Build and Mai
+- **iso27001_checklist()**: return [
+            {
+                'control': 'A.9',
+                'title': 'Access Control',
+
+- **audit_compliance()**: checklist = self.generate_compliance_checklist(framework)
+        
+        audit_result = {
+        
+- **generate_audit_trail_id()**: import hashlib
+        data = f"{datetime.now().isoformat()}{len(self.audit_trail)}"
+        return 
+- **export_audit_trail()**: return {
+            'audit_trail': self.audit_trail,
+            'export_timestamp': datetime.now()
 
 ---
 
