@@ -1,16 +1,16 @@
 # ML Documentation
 
-**Generated:** 2026-11-05 16:06:45 UTC
+**Generated:** 2026-11-05 22:31:06 UTC
 
 **Total Files:** 5
 
 ## Files
 
 - [./scripts/generate_auto_docs.py](#--scripts-generate_auto_docs-py)
+- [./scripts/agent_learning.py](#--scripts-agent_learning-py)
 - [./scripts/multicloud_orchestrator.py](#--scripts-multicloud_orchestrator-py)
 - [./scripts/agent_orchestrator.py](#--scripts-agent_orchestrator-py)
 - [./scripts/compliance_security.py](#--scripts-compliance_security-py)
-- [./scripts/agent_learning.py](#--scripts-agent_learning-py)
 
 ## Detailed Documentation
 
@@ -63,6 +63,64 @@ from datetime import datetime
     categorized = {}
     for filepath, content in py_files.items():
         categ
+
+---
+
+### ./scripts/agent_learning.py
+
+**Lines of Code:** 287
+
+**Module Description:**
+```
+Agent Learning Engine - Continuous improvement and pattern learning
+```
+
+**Key Imports:**
+```python
+import json
+from datetime import datetime, timedelta
+from typing import Dict, List
+from collections import defaultdict
+```
+
+**Classes (3):**
+- **AgentLearning**: No documentation
+- **ProactiveImprovementEngine**: No documentation
+- **ContinuousInnovation**: No documentation
+
+**Functions (12):**
+- **__init__()**: No documentation
+- **record_task_execution()**: execution_record = {
+            'timestamp': datetime.now().isoformat(),
+            'task': task_n
+- **extract_patterns()**: if result.get('success'):
+            pattern = {
+                'task_type': task_type,
+          
+- **analyze_effectiveness()**: effectiveness = {}
+        
+        for task_type, patterns in self.pattern_library.items():
+       
+- **get_recommended_approach()**: if task_type not in self.pattern_library or not self.pattern_library[task_type]:
+            return 
+- **adapt_strategy()**: adaptation = {
+            'original_approach': current_approach,
+            'failure_reason': fail
+- **__init__()**: No documentation
+- **detect_issues_before_failure()**: issues = []
+        
+        # High memory usage detection
+        issues.append({
+            'type
+- **suggest_architecture_improvements()**: suggestions = []
+        
+        if repo_analysis.get('module_coupling_high'):
+            suggesti
+- **generate_optimization_roadmap()**: roadmap = {
+            'quarter': 'Q1-2026',
+            'initiatives': [
+                {
+       
 
 ---
 
@@ -241,64 +299,6 @@ import hashlib
 - **export_audit_trail()**: return {
             'audit_trail': self.audit_trail,
             'export_timestamp': datetime.now()
-
----
-
-### ./scripts/agent_learning.py
-
-**Lines of Code:** 287
-
-**Module Description:**
-```
-Agent Learning Engine - Continuous improvement and pattern learning
-```
-
-**Key Imports:**
-```python
-import json
-from datetime import datetime, timedelta
-from typing import Dict, List
-from collections import defaultdict
-```
-
-**Classes (3):**
-- **AgentLearning**: No documentation
-- **ProactiveImprovementEngine**: No documentation
-- **ContinuousInnovation**: No documentation
-
-**Functions (12):**
-- **__init__()**: No documentation
-- **record_task_execution()**: execution_record = {
-            'timestamp': datetime.now().isoformat(),
-            'task': task_n
-- **extract_patterns()**: if result.get('success'):
-            pattern = {
-                'task_type': task_type,
-          
-- **analyze_effectiveness()**: effectiveness = {}
-        
-        for task_type, patterns in self.pattern_library.items():
-       
-- **get_recommended_approach()**: if task_type not in self.pattern_library or not self.pattern_library[task_type]:
-            return 
-- **adapt_strategy()**: adaptation = {
-            'original_approach': current_approach,
-            'failure_reason': fail
-- **__init__()**: No documentation
-- **detect_issues_before_failure()**: issues = []
-        
-        # High memory usage detection
-        issues.append({
-            'type
-- **suggest_architecture_improvements()**: suggestions = []
-        
-        if repo_analysis.get('module_coupling_high'):
-            suggesti
-- **generate_optimization_roadmap()**: roadmap = {
-            'quarter': 'Q1-2026',
-            'initiatives': [
-                {
-       
 
 ---
 
