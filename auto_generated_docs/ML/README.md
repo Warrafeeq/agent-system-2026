@@ -1,18 +1,80 @@
 # ML Documentation
 
-**Generated:** 2026-11-18 11:06:15 UTC
+**Generated:** 2026-11-18 19:57:46 UTC
 
 **Total Files:** 5
 
 ## Files
 
+- [./scripts/compliance_security.py](#--scripts-compliance_security-py)
 - [./scripts/generate_auto_docs.py](#--scripts-generate_auto_docs-py)
 - [./scripts/agent_learning.py](#--scripts-agent_learning-py)
 - [./scripts/multicloud_orchestrator.py](#--scripts-multicloud_orchestrator-py)
 - [./scripts/agent_orchestrator.py](#--scripts-agent_orchestrator-py)
-- [./scripts/compliance_security.py](#--scripts-compliance_security-py)
 
 ## Detailed Documentation
+
+### ./scripts/compliance_security.py
+
+**Lines of Code:** 278
+
+**Module Description:**
+```
+Compliance & Security Hardening Engine - Enterprise-grade security automation
+```
+
+**Key Imports:**
+```python
+import json
+from datetime import datetime
+from typing import List, Dict
+from enum import Enum
+import hashlib
+```
+
+**Classes (3):**
+- **ComplianceFramework**: No documentation
+- **ComplianceChecker**: No documentation
+- **SecurityHardener**: No documentation
+
+**Functions (14):**
+- **__init__()**: No documentation
+- **generate_compliance_checklist()**: checklists = {
+            ComplianceFramework.SOC2: self.soc2_checklist(),
+            ComplianceFr
+- **soc2_checklist()**: return [
+            {
+                'criterion': 'CC6.1',
+                'title': 'Logical Acces
+- **hipaa_checklist()**: return [
+            {
+                'requirement': 'Physical Safeguards',
+                'items'
+- **gdpr_checklist()**: return [
+            {
+                'article': 'Article 32',
+                'title': 'Security o
+- **pci_dss_checklist()**: return [
+            {
+                'requirement': '1-6',
+                'title': 'Build and Mai
+- **iso27001_checklist()**: return [
+            {
+                'control': 'A.9',
+                'title': 'Access Control',
+
+- **audit_compliance()**: checklist = self.generate_compliance_checklist(framework)
+        
+        audit_result = {
+        
+- **generate_audit_trail_id()**: import hashlib
+        data = f"{datetime.now().isoformat()}{len(self.audit_trail)}"
+        return 
+- **export_audit_trail()**: return {
+            'audit_trail': self.audit_trail,
+            'export_timestamp': datetime.now()
+
+---
 
 ### ./scripts/generate_auto_docs.py
 
@@ -237,68 +299,6 @@ from typing import Dict, List, Optional
             name=repo_name,
             url='',
             language=''
-
----
-
-### ./scripts/compliance_security.py
-
-**Lines of Code:** 278
-
-**Module Description:**
-```
-Compliance & Security Hardening Engine - Enterprise-grade security automation
-```
-
-**Key Imports:**
-```python
-import json
-from datetime import datetime
-from typing import List, Dict
-from enum import Enum
-import hashlib
-```
-
-**Classes (3):**
-- **ComplianceFramework**: No documentation
-- **ComplianceChecker**: No documentation
-- **SecurityHardener**: No documentation
-
-**Functions (14):**
-- **__init__()**: No documentation
-- **generate_compliance_checklist()**: checklists = {
-            ComplianceFramework.SOC2: self.soc2_checklist(),
-            ComplianceFr
-- **soc2_checklist()**: return [
-            {
-                'criterion': 'CC6.1',
-                'title': 'Logical Acces
-- **hipaa_checklist()**: return [
-            {
-                'requirement': 'Physical Safeguards',
-                'items'
-- **gdpr_checklist()**: return [
-            {
-                'article': 'Article 32',
-                'title': 'Security o
-- **pci_dss_checklist()**: return [
-            {
-                'requirement': '1-6',
-                'title': 'Build and Mai
-- **iso27001_checklist()**: return [
-            {
-                'control': 'A.9',
-                'title': 'Access Control',
-
-- **audit_compliance()**: checklist = self.generate_compliance_checklist(framework)
-        
-        audit_result = {
-        
-- **generate_audit_trail_id()**: import hashlib
-        data = f"{datetime.now().isoformat()}{len(self.audit_trail)}"
-        return 
-- **export_audit_trail()**: return {
-            'audit_trail': self.audit_trail,
-            'export_timestamp': datetime.now()
 
 ---
 
