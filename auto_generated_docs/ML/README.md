@@ -1,68 +1,78 @@
 # ML Documentation
 
-**Generated:** 2026-11-19 18:50:51 UTC
+**Generated:** 2026-11-20 01:01:28 UTC
 
 **Total Files:** 5
 
 ## Files
 
-- [./scripts/generate_auto_docs.py](#--scripts-generate_auto_docs-py)
-- [./scripts/agent_learning.py](#--scripts-agent_learning-py)
-- [./scripts/multicloud_orchestrator.py](#--scripts-multicloud_orchestrator-py)
-- [./scripts/agent_orchestrator.py](#--scripts-agent_orchestrator-py)
 - [./scripts/compliance_security.py](#--scripts-compliance_security-py)
+- [./scripts/agent_learning.py](#--scripts-agent_learning-py)
+- [./scripts/agent_orchestrator.py](#--scripts-agent_orchestrator-py)
+- [./scripts/multicloud_orchestrator.py](#--scripts-multicloud_orchestrator-py)
+- [./scripts/generate_auto_docs.py](#--scripts-generate_auto_docs-py)
 
 ## Detailed Documentation
 
-### ./scripts/generate_auto_docs.py
+### ./scripts/compliance_security.py
 
-**Lines of Code:** 215
+**Lines of Code:** 278
 
 **Module Description:**
 ```
-Auto-generate documentation for Python code organized by category
+Compliance & Security Hardening Engine - Enterprise-grade security automation
 ```
 
 **Key Imports:**
 ```python
-import os
 import json
-from pathlib import Path
 from datetime import datetime
+from typing import List, Dict
+from enum import Enum
+import hashlib
 ```
 
-**Functions (7):**
-- **categorize_file()**: filename = filepath.lower()
-    content_lower = content.lower()
-    
-    for category, keywords in C
-- **extract_docstring()**: lines = content.split('\n')
-    in_docstring = False
-    docstring = []
-    
-    for line in lines:
-- **extract_functions()**: functions = []
-    lines = content.split('\n')
-    
-    for i, line in enumerate(lines):
-        if 
-- **extract_classes()**: classes = []
-    lines = content.split('\n')
-    
-    for i, line in enumerate(lines):
-        if li
-- **generate_file_documentation()**: try:
-        # Extract components
-        docstring = extract_docstring(content)
-        functions =
-- **scan_python_files()**: py_files = {}
-    
-    for root, dirs, files in os.walk(root_dir):
-        # Skip hidden and virtual
-- **generate_markdown_docs()**: # Categorize files
-    categorized = {}
-    for filepath, content in py_files.items():
-        categ
+**Classes (3):**
+- **ComplianceFramework**: No documentation
+- **ComplianceChecker**: No documentation
+- **SecurityHardener**: No documentation
+
+**Functions (14):**
+- **__init__()**: No documentation
+- **generate_compliance_checklist()**: checklists = {
+            ComplianceFramework.SOC2: self.soc2_checklist(),
+            ComplianceFr
+- **soc2_checklist()**: return [
+            {
+                'criterion': 'CC6.1',
+                'title': 'Logical Acces
+- **hipaa_checklist()**: return [
+            {
+                'requirement': 'Physical Safeguards',
+                'items'
+- **gdpr_checklist()**: return [
+            {
+                'article': 'Article 32',
+                'title': 'Security o
+- **pci_dss_checklist()**: return [
+            {
+                'requirement': '1-6',
+                'title': 'Build and Mai
+- **iso27001_checklist()**: return [
+            {
+                'control': 'A.9',
+                'title': 'Access Control',
+
+- **audit_compliance()**: checklist = self.generate_compliance_checklist(framework)
+        
+        audit_result = {
+        
+- **generate_audit_trail_id()**: import hashlib
+        data = f"{datetime.now().isoformat()}{len(self.audit_trail)}"
+        return 
+- **export_audit_trail()**: return {
+            'audit_trail': self.audit_trail,
+            'export_timestamp': datetime.now()
 
 ---
 
@@ -124,64 +134,6 @@ from collections import defaultdict
 
 ---
 
-### ./scripts/multicloud_orchestrator.py
-
-**Lines of Code:** 344
-
-**Module Description:**
-```
-Multi-Cloud Orchestration Engine - AWS, GCP, Azure workload management
-```
-
-**Key Imports:**
-```python
-import json
-from typing import Dict, List
-from dataclasses import dataclass
-from enum import Enum
-from datetime import datetime
-```
-
-**Classes (3):**
-- **CloudProvider**: No documentation
-- **ResourceOptimization**: No documentation
-- **MultiCloudOrchestrator**: No documentation
-
-**Functions (9):**
-- **__init__()**: No documentation
-- **analyze_cross_cloud_costs()**: analysis = {
-            'timestamp': datetime.now().isoformat(),
-            'providers': {
-       
-- **analyze_aws_costs()**: return {
-            'provider': 'AWS',
-            'current_spend': 0,
-            'breakdown': {
- 
-- **analyze_gcp_costs()**: return {
-            'provider': 'GCP',
-            'current_spend': 0,
-            'breakdown': {
- 
-- **analyze_azure_costs()**: return {
-            'provider': 'Azure',
-            'current_spend': 0,
-            'breakdown': {
-- **find_arbitrage_opportunities()**: return [
-            {
-                'opportunity': 'Region arbitrage',
-                'savings_p
-- **generate_migration_plan()**: plan = {
-            'workload': workload,
-            'from': from_provider.value,
-            'to'
-- **rightsize_infrastructure()**: optimizations = [
-            ResourceOptimization(
-                resource_id='i-1234567890abcdef0
-- **generate_terraform_multicloud()**: No documentation
-
----
-
 ### ./scripts/agent_orchestrator.py
 
 **Lines of Code:** 243
@@ -240,65 +192,113 @@ from typing import Dict, List, Optional
 
 ---
 
-### ./scripts/compliance_security.py
+### ./scripts/multicloud_orchestrator.py
 
-**Lines of Code:** 278
+**Lines of Code:** 344
 
 **Module Description:**
 ```
-Compliance & Security Hardening Engine - Enterprise-grade security automation
+Multi-Cloud Orchestration Engine - AWS, GCP, Azure workload management
 ```
 
 **Key Imports:**
 ```python
 import json
-from datetime import datetime
-from typing import List, Dict
+from typing import Dict, List
+from dataclasses import dataclass
 from enum import Enum
-import hashlib
+from datetime import datetime
 ```
 
 **Classes (3):**
-- **ComplianceFramework**: No documentation
-- **ComplianceChecker**: No documentation
-- **SecurityHardener**: No documentation
+- **CloudProvider**: No documentation
+- **ResourceOptimization**: No documentation
+- **MultiCloudOrchestrator**: No documentation
 
-**Functions (14):**
+**Functions (9):**
 - **__init__()**: No documentation
-- **generate_compliance_checklist()**: checklists = {
-            ComplianceFramework.SOC2: self.soc2_checklist(),
-            ComplianceFr
-- **soc2_checklist()**: return [
+- **analyze_cross_cloud_costs()**: analysis = {
+            'timestamp': datetime.now().isoformat(),
+            'providers': {
+       
+- **analyze_aws_costs()**: return {
+            'provider': 'AWS',
+            'current_spend': 0,
+            'breakdown': {
+ 
+- **analyze_gcp_costs()**: return {
+            'provider': 'GCP',
+            'current_spend': 0,
+            'breakdown': {
+ 
+- **analyze_azure_costs()**: return {
+            'provider': 'Azure',
+            'current_spend': 0,
+            'breakdown': {
+- **find_arbitrage_opportunities()**: return [
             {
-                'criterion': 'CC6.1',
-                'title': 'Logical Acces
-- **hipaa_checklist()**: return [
-            {
-                'requirement': 'Physical Safeguards',
-                'items'
-- **gdpr_checklist()**: return [
-            {
-                'article': 'Article 32',
-                'title': 'Security o
-- **pci_dss_checklist()**: return [
-            {
-                'requirement': '1-6',
-                'title': 'Build and Mai
-- **iso27001_checklist()**: return [
-            {
-                'control': 'A.9',
-                'title': 'Access Control',
+                'opportunity': 'Region arbitrage',
+                'savings_p
+- **generate_migration_plan()**: plan = {
+            'workload': workload,
+            'from': from_provider.value,
+            'to'
+- **rightsize_infrastructure()**: optimizations = [
+            ResourceOptimization(
+                resource_id='i-1234567890abcdef0
+- **generate_terraform_multicloud()**: No documentation
 
-- **audit_compliance()**: checklist = self.generate_compliance_checklist(framework)
-        
-        audit_result = {
-        
-- **generate_audit_trail_id()**: import hashlib
-        data = f"{datetime.now().isoformat()}{len(self.audit_trail)}"
-        return 
-- **export_audit_trail()**: return {
-            'audit_trail': self.audit_trail,
-            'export_timestamp': datetime.now()
+---
+
+### ./scripts/generate_auto_docs.py
+
+**Lines of Code:** 215
+
+**Module Description:**
+```
+Auto-generate documentation for Python code organized by category
+```
+
+**Key Imports:**
+```python
+import os
+import json
+from pathlib import Path
+from datetime import datetime
+```
+
+**Functions (7):**
+- **categorize_file()**: filename = filepath.lower()
+    content_lower = content.lower()
+    
+    for category, keywords in C
+- **extract_docstring()**: lines = content.split('\n')
+    in_docstring = False
+    docstring = []
+    
+    for line in lines:
+- **extract_functions()**: functions = []
+    lines = content.split('\n')
+    
+    for i, line in enumerate(lines):
+        if 
+- **extract_classes()**: classes = []
+    lines = content.split('\n')
+    
+    for i, line in enumerate(lines):
+        if li
+- **generate_file_documentation()**: try:
+        # Extract components
+        docstring = extract_docstring(content)
+        functions =
+- **scan_python_files()**: py_files = {}
+    
+    for root, dirs, files in os.walk(root_dir):
+        # Skip hidden and virtual
+- **generate_markdown_docs()**: # Categorize files
+    categorized = {}
+    for filepath, content in py_files.items():
+        categ
 
 ---
 
